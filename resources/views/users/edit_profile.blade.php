@@ -42,7 +42,12 @@
                     {{Form::checkbox('checkSkill', 'PHP／Laravel', false, ['class'=>'custom-control-input','id'=>'checkSkill1'])}}
 
                 </div>
-                {!! Form::submit('新規登録', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('プロフィールを更新', ['class' => 'btn btn-primary btn-block']) !!}
+            {!! Form::close() !!}
+            
+            {{-- アカウント削除 --}}
+            {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
             {!! Form::close() !!}
         </div>
     </div>

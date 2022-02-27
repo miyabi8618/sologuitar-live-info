@@ -17,14 +17,13 @@
                     </form>
                     @if (Auth::check())
                     {{-- ユーザ一覧ページへのリンク --}}
-                    <li class="nav-item"><a href="#" class="nav-link">Users</a></li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            {{-- ログアウトへのリンク --}}
+                            {{-- ログアウトへのリンク（リンク作成済み） --}}
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
-                            {{-- ユーザページへのリンク --}}
-                            <li class="dropdown-item"><a href="#">マイページ</a></li>
+                            {{-- ユーザページへのリンク（リンク作成済み） --}}
+                            <li class="dropdown-item">{!! link_to_route('users.index', 'マイページ') !!}</li>
                             <li class="dropdown-divider"></li>
                             {{-- ライブ作成ページへのリンク【注意：アーティスト登録しているかどうかで表示される】 --}}
                             <li class="dropdown-item"><a href="#">ライブ情報を作成</a></li>
@@ -33,7 +32,7 @@
                     </li>
                     @else    
                         
-                        {{-- ログインページへのリンク（リンク） --}}
+                        {{-- ログインページへのリンク（リンク作成済み） --}}
                         <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
                         {{-- ユーザ登録ページへのリンク（リンク作成済み） --}}
                         <li>{!! link_to_route('signup.get', '新規登録', [], ['class' => 'nav-link']) !!}</li>
