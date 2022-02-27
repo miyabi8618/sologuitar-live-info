@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             //プロフィール設定で入力されるカラム
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->date('birthday')->nullable();
             $table->string('introduction')->nullable();
