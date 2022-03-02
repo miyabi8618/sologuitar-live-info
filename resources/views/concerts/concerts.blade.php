@@ -17,6 +17,9 @@
                 {!! Form::open(['route' => ['users.concert_destroy', $concert->id], 'method' => 'delete']) !!}
                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                 {!! Form::close() !!}
+                
+                {{-- ライブ情報編集ページへのリンク --}}
+                {!! link_to_route('users.concert_edit', 'ライブ情報を編集', ['user' => $user->id], ['class' => 'btn btn-primary']) !!}
             @endif
         @endforeach
     </ul>

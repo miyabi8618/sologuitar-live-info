@@ -14,7 +14,7 @@
     </div>
     {{-- プロフィール編集ページへのリンク --}}
     {!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => 'btn btn-primary']) !!}
-    {{-- メッセージ作成ページへのリンク --}}
+    {{-- ライブ情報の作成ページへのリンク --}}
     {!! link_to_route('users.concert_create', 'ライブ情報の作成', [], ['class' => 'btn btn-primary']) !!}
 
 
