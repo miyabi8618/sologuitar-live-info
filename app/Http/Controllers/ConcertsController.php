@@ -3,23 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Concert;
 
 class ConcertsController extends Controller
 {
     public function index()
     {
-        $data = [];
-        if (\Auth::check()) { // 認証済みの場合
-            // 認証済みユーザを取得
-            $user = \Auth::user();
-            // コンサートの一覧を公演日の降順で取得
-            $concerts = $user->concerts()->orderBy('date','desc')->paginate(10);
-            
-            $data = [
-                'user' => $user,
-                'concerts' => $concerts,
-            ];
-        }    
-            return view('mypage', $data);
+       $concerts = Concert::orderBy('date', 'desc')->get();
+       
+        
+        // コンサートの一覧を公演日の降順で取得
+           
+        return view('welcome',[
+            'concerts' => $concerts,
+        ]);
     }
 }

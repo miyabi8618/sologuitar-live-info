@@ -1,8 +1,6 @@
 <?php
 //ページ変遷
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ConcertsController@index');
 
 
 
