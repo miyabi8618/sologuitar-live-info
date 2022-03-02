@@ -49,10 +49,7 @@ class UsersController extends Controller
         return view('users.edit_profile',[
             'user' => $user,
         ]);
-        //プロフィール作成ビューでそれを表示
-        return view('users.create_profile',[
-            'user' => $user,
-        ]);
+
     }
     
     public function update(Request $reqest, $id)
@@ -128,8 +125,7 @@ class UsersController extends Controller
     
         public function concert_edit($id)
     {
-        $id = \Auth::user()->id;
-        //idで検索しユーザーテーブルを取得
+        //idで検索しコンサートテーブルを取得
         $concert = Concert::findOrFail($id);
         
         // ライブ情報編集ビューでそれを表示
@@ -137,5 +133,25 @@ class UsersController extends Controller
             'concert' => $concert,
         ]);
 
+    }
+    
+    public function concert_update(Request $reqest, $id)
+    {
+        
+        //idで検索しユーザーテーブルを取得
+        $concert = Concert::findOrFail($id);
+        //$concertを更新
+        $concert->title = $reqest->title;
+        $concert->place = $reqest->place;
+        $concert->venue = $reqest->venue;
+        $concert->date = $reqest->date;
+        $concert->content = $reqest->content;
+        $concert->web = $reqest->web;
+
+        $concert->save();
+        
+        // トップページへリダイレクトさせる（質問リダイレクト方法）
+        return redirect('/');
+        
     }
 }

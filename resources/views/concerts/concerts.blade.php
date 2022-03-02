@@ -19,7 +19,7 @@
                 {!! Form::close() !!}
                 
                 {{-- ライブ情報編集ページへのリンク --}}
-                {!! link_to_route('users.concert_edit', 'ライブ情報を編集', ['user' => $user->id], ['class' => 'btn btn-primary']) !!}
+                {!! link_to_route('users.concert_edit', 'ライブ情報を編集', ['concert' => $concert->id], ['class' => 'btn btn-primary']) !!}
             @endif
         @endforeach
     </ul>

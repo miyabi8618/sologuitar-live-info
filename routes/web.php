@@ -25,10 +25,7 @@ Route::group(['middleware' => ['auth']], function () {
     //ユーザーがライブ情報を作成する機能
     Route::get('users/concert_create','UsersController@concert_create')->name('users.concert_create');
     Route::post('users','UsersController@concert_store')->name('users.concert_store');
-    Route::delete('users/{user}', 'UsersController@concert_destroy')->name('users.concert_destroy');
-    Route::get('users/{user}/concert_edit', 'UsersController@concert_edit')->name('users.concert_edit');
-    Route::put('users/{user}', 'UsersController@concert_update')->name('users.concert_update');
-    //ライブを登録する機能
-    Route::resource('concerts', 'ConcertsController',['only' => ['store', 'edit', 'update', 'destroy']]);
-    Route::get('/mypage', 'ConcertsController@index');
+    Route::delete('users/{user}/concert_destroy', 'UsersController@concert_destroy')->name('users.concert_destroy');
+    Route::get('users/{concert}/concert_edit', 'UsersController@concert_edit')->name('users.concert_edit');
+    Route::put('users/{concert}/concert_update', 'UsersController@concert_update')->name('users.concert_update');
 });

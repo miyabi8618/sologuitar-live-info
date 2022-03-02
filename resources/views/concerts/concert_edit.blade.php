@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-6">
-            {!! Form::model($concert, ['route' => 'users.concert_store']) !!}
+            {!! Form::model($concert, ['route' => ['users.concert_update',$concert->id], 'method' => 'put']) !!}
 
                 <div class="form-group">
                     {!! Form::label('title', 'ライブタイトル') !!}
@@ -41,6 +41,14 @@
                 {!! Form::submit('登録', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
+            
+             @if (Auth::id() == $concert->user_id)
+                {{-- 投稿削除ボタンのフォーム --}}
+                {!! Form::open(['route' => ['users.concert_destroy', $concert->id], 'method' => 'delete']) !!}
+                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! Form::close() !!}
+
+            @endif
         </div>
     </div>
 @endsection
