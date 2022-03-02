@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\User;
+use App\Concert;
 
 class UsersController extends Controller
 {
@@ -13,14 +13,15 @@ class UsersController extends Controller
         $data = [];
         //$userに認証済みユーザーを代入
         $user = \Auth::user();
-        
+ 
         //プロフィールを表示
         //登録したライブ一覧を表示
         //お気に入りアーティストを表示
         //公開したライブ一覧を表示
-        
+        $concerts = $user->concerts()->orderBy('date','desc')->paginate(10);
         $data = [
-            'user' => $user    
+            'user' => $user,
+            'concerts' => $concerts,
         ];
         
         return view ('users.index',$data);
@@ -86,4 +87,55 @@ class UsersController extends Controller
         return redirect('/');
     }
     
+    //ライブ情報追加ページへ移動
+    public function concert_create()
+    {
+        $concert = new Concert;
+        
+        return view('concerts.concert_create',[
+            'concert' => $concert,        
+        ]);
+    }
+    
+    //ライブ情報フォームからconcertテーブルに格納する
+    public function concert_store(Request $reqest)
+    {
+        $reqest->user()->concerts()->create([
+            'title' => $reqest->title,
+            'place' => $reqest->place,
+            'venue' => $reqest->venue,
+            'date' => $reqest->date,
+            'content' => $reqest->content,
+            'web' => $reqest->web,
+        ]);
+        
+        // トップページへリダイレクトさせる
+        return redirect('/');
+    }
+    public function concert_destroy($id)
+    {
+        // idの値で投稿を検索して取得
+        $concert = \App\Concert::findOrFail($id);
+
+        // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
+        if (\Auth::id() === $concert->user_id) {
+            $concert->delete();
+        }
+
+        // 前のURLへリダイレクトさせる
+        return back();
+    }
+    
+        public function concert_edit($id)
+    {
+        $id = \Auth::user()->id;
+        //idで検索しユーザーテーブルを取得
+        $concert = Concert::findOrFail($id);
+        
+        // ライブ情報編集ビューでそれを表示
+        return view('concerts.concert_edit',[
+            'concert' => $concert,
+        ]);
+
+    }
 }

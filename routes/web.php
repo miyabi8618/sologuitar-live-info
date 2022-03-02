@@ -4,9 +4,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/user', function () {
-//    return view('users.edit_profile');
-//});
+
 
 
 // ユーザ登録
@@ -24,6 +22,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('users/{user}/edit', 'UsersController@edit')->name('users.edit');
     Route::put('users/{user}', 'UsersController@update')->name('users.update');
     Route::delete('users/{user}', 'UsersController@destroy')->name('users.destroy');
-
-    
+    //ユーザーがライブ情報を作成する機能
+    Route::get('users/concert_create','UsersController@concert_create')->name('users.concert_create');
+    Route::post('users','UsersController@concert_store')->name('users.concert_store');
+    Route::delete('users/{user}', 'UsersController@concert_destroy')->name('users.concert_destroy');
+    Route::get('users/{user}/concert_edit', 'UsersController@concert_edit')->name('users.concert_edit');
+    Route::put('users/{user}', 'UsersController@concert_update')->name('users.concert_update');
+    //ライブを登録する機能
+    Route::resource('concerts', 'ConcertsController',['only' => ['store', 'edit', 'update', 'destroy']]);
+    Route::get('/mypage', 'ConcertsController@index');
 });

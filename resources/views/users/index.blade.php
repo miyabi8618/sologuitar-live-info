@@ -12,7 +12,12 @@
         <h3>自己紹介: {{$user->introduction}}</h3>
         <h3>Web: {{$user->web}}</h3>
     </div>
+    {{-- プロフィール編集ページへのリンク --}}
     {!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => 'btn btn-primary']) !!}
+    {{-- メッセージ作成ページへのリンク --}}
+    {!! link_to_route('users.concert_create', 'ライブ情報の作成', [], ['class' => 'btn btn-primary']) !!}
+
+
     
     
     
@@ -28,6 +33,7 @@
     
     <div class="text-left">
         <h1>公開したライブ</h1>
+        @include('concerts.concerts')
     </div>
     
 @endsection

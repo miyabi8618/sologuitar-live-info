@@ -37,4 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    //Concertとの繋がりを記述
+    public function concerts()
+    {
+        return $this->hasMany(Concert::class);
+    }
 }
