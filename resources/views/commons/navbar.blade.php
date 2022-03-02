@@ -24,12 +24,8 @@
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
                             {{-- ユーザページへのリンク（リンク作成済み） --}}
                             <li class="dropdown-item">{!! link_to_route('users.index', 'マイページ') !!}</li>
-                            {{-- テストページへのリンク --}}
-                            <li class="dropdown-item"><a href="{{ url('/mypage') }}"> マイページ変更後 </a></li>
-                            <li class="dropdown-divider"></li>
-                            {{-- ライブ作成ページへのリンク【注意：アーティスト登録しているかどうかで表示される】 --}}
-                            <li class="dropdown-item"><a href="#">ライブ情報を作成</a></li>
-                            <li class="dropdown-divider"></li>
+                           {{-- ライブ作成ページへのリンク(リンク作成済み) --}}
+                            <li class="dropdown-item">{!! link_to_route('users.concert_create', 'ライブ情報の作成') !!}</li>
                         </ul>
                     </li>
                     @else    
