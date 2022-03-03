@@ -41,9 +41,9 @@
                 <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
                     {{-- 地域から探すページへのリンク --}}
-                    <li class="nav-item"><a href="#" class="nav-link">地域から探す</a></li>
+                    <li class="nav-item"><a href="{{ url('/search_area') }}" class="nav-link">地域から探す</a></li>
                     {{-- アーティストから探すページへのリンク --}}
-                    <li class="nav-item"><a href="#" class="nav-link">アーティストから探す</a></li>
+                    <li class="nav-item"><a href="{{ url('/search_word') }}" class="nav-link">アーティストから探す</a></li>
                 </ul>
             </div>
         </div>

@@ -39,7 +39,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('artist', 'アーティスト登録') !!}
-                    {{Form::checkbox('checkSkill', 'PHP／Laravel', false, ['class'=>'custom-control-input','id'=>'checkSkill1'])}}
+                    {{Form::checkbox('is_artist', 1, false, ['class'=>'','id'=>'checkSkill1'])}}
 
                 </div>
                 {!! Form::submit('プロフィールを更新', ['class' => 'btn btn-primary btn-block']) !!}

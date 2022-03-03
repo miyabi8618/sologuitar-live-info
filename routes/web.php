@@ -1,9 +1,8 @@
 <?php
-//ページ変遷
+
+//全員が使用できる
 Route::get('/', 'ConcertsController@index');
-
-
-
+Route::resource('concerts', 'ConcertsController',  ['only' => ['show']]);
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -26,4 +25,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('users/{user}/concert_destroy', 'UsersController@concert_destroy')->name('users.concert_destroy');
     Route::get('users/{concert}/concert_edit', 'UsersController@concert_edit')->name('users.concert_edit');
     Route::put('users/{concert}/concert_update', 'UsersController@concert_update')->name('users.concert_update');
+    //ユーザーお気に入り機能
+    Route::post('users/{user}/follow', 'UserFollowController@store')->name('user.follow');
+    Route::delete('users/{user}/unfollow', 'UserFollowController@destroy')->name('user.unfollow');
+});
+
+//ページ遷移（名前が付くまで）
+Route::get('/search_word', function () {
+  return view('search_word');
+});
+Route::get('/search_area', function () {
+  return view('search_area');
 });

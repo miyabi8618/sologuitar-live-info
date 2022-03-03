@@ -10,7 +10,6 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $data = [];
         //$userに認証済みユーザーを代入
         $user = \Auth::user();
  
@@ -25,6 +24,23 @@ class UsersController extends Controller
         ];
         
         return view ('users.index',$data);
+    }
+    
+    
+    
+    public function search(Request $reqest)
+    {
+        $search_keyword = $reqest->keyword;
+        
+        // 指定されたキーワードで検索する
+        $users = User::find($search_keyword);
+        
+        $data = [
+            'users' => $users
+        ];
+        
+        return view('users.index', $data);
+        
     }
     
     public function create($id)
@@ -112,15 +128,15 @@ class UsersController extends Controller
     public function concert_destroy($id)
     {
         // idの値で投稿を検索して取得
-        $concert = \App\Concert::findOrFail($id);
+        $concert = Concert::findOrFail($id);
 
         // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
         if (\Auth::id() === $concert->user_id) {
             $concert->delete();
         }
 
-        // 前のURLへリダイレクトさせる
-        return back();
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
     
         public function concert_edit($id)

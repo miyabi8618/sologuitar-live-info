@@ -19,4 +19,19 @@ class ConcertsController extends Controller
             'concerts' => $concerts,
         ]);
     }
+    
+        public function show($id)
+    {
+        // idの値で該当のconcertを検索して取得
+        $concert = Concert::findOrFail($id);
+        $user = User::findOrFail($concert->user_id);
+        
+        
+
+        // ユーザ詳細ビューでそれを表示
+        return view('concerts.show', [
+            'concert' => $concert,
+            'user' => $user,
+        ]);
+    }
 }
