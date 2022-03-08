@@ -15,4 +15,10 @@ class Concert extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    //お気に入りコンサートとユーザーIDを繋げる
+    public function favorite_users()
+    {
+        return $this->belongsToMany(User::class, 'favorite_concert', 'concert_id', 'user_id')->withTimestamps();
+    }
 }

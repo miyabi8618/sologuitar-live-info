@@ -29,6 +29,7 @@
     
     <div class="text-left">
         <h1>お気に入りアーティスト</h1>
+        @include('user_follow.user_follow')
     </div>
     
     <div class="text-left">

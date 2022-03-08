@@ -16,11 +16,14 @@ class UsersController extends Controller
         //プロフィールを表示
         //登録したライブ一覧を表示
         //お気に入りアーティストを表示
+        $follow_users = $user->followings()->orderBy('created_at','desc')->paginate(10);
+        
         //公開したライブ一覧を表示
         $concerts = $user->concerts()->orderBy('date','desc')->paginate(10);
         $data = [
             'user' => $user,
             'concerts' => $concerts,
+            'follow_users' => $follow_users,
         ];
         
         return view ('users.index',$data);
