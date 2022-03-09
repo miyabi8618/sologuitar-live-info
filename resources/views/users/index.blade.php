@@ -25,6 +25,7 @@
     
     <div class="text-left">
         <h1>お気に入り登録したライブ</h1>
+        @include('concert_favorite.concert_favorite')
     </div>
     
     <div class="text-left">

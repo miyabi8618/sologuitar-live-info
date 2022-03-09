@@ -23,6 +23,7 @@
                         <p class="mb-0">日時{!! nl2br(e($concert->date)) !!}</p>
                         <p class="mb-0">詳細情報{!! nl2br(e($concert->content)) !!}</p>
                         <p class="mb-0">URL{!! nl2br(e($concert->web)) !!}</p>
+                        @include('concert_favorite.favorite_button')
                     </div>
             </div>
         </li>

@@ -25,9 +25,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('users/{user}/concert_destroy', 'UsersController@concert_destroy')->name('users.concert_destroy');
     Route::get('users/{concert}/concert_edit', 'UsersController@concert_edit')->name('users.concert_edit');
     Route::put('users/{concert}/concert_update', 'UsersController@concert_update')->name('users.concert_update');
-    //ユーザーお気に入り機能
+    //ユーザーフォロー機能
     Route::post('users/{user}/follow', 'UserFollowController@store')->name('user.follow');
     Route::delete('users/{user}/unfollow', 'UserFollowController@destroy')->name('user.unfollow');
+    //コンサートお気に入り機能
+    Route::post('user/{concert}/favorite', 'UserFavoriteController@store')->name('user.favorite');
+    Route::delete('user/{concert}/unfavorite', 'UserFavoriteController@destroy')->name('user.unfavorite');
 });
 
 //ページ遷移（名前が付くまで）

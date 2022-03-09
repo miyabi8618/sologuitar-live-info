@@ -15,6 +15,7 @@ class UsersController extends Controller
  
         //プロフィールを表示
         //登録したライブ一覧を表示
+        $favorite_concerts = $user->favorites()->orderBy('created_at','desc')->paginate(10);
         //お気に入りアーティストを表示
         $follow_users = $user->followings()->orderBy('created_at','desc')->paginate(10);
         
@@ -24,6 +25,7 @@ class UsersController extends Controller
             'user' => $user,
             'concerts' => $concerts,
             'follow_users' => $follow_users,
+            'favorite_concerts' => $favorite_concerts,
         ];
         
         return view ('users.index',$data);
@@ -85,8 +87,8 @@ class UsersController extends Controller
         //$user->artist = $reqest->artist;
         $user->save();
         
-        // トップページへリダイレクトさせる（質問リダイレクト方法）
-        return redirect('/');
+        // ユーザページへリダイレクトさせる
+        return redirect('users');
         
     }
     
@@ -126,7 +128,7 @@ class UsersController extends Controller
         ]);
         
         // トップページへリダイレクトさせる
-        return redirect('/');
+        return redirect('users');
     }
     public function concert_destroy($id)
     {
@@ -139,7 +141,7 @@ class UsersController extends Controller
         }
 
         // トップページへリダイレクトさせる
-        return redirect('/');
+        return redirect('users');
     }
     
         public function concert_edit($id)
@@ -170,7 +172,7 @@ class UsersController extends Controller
         $concert->save();
         
         // トップページへリダイレクトさせる（質問リダイレクト方法）
-        return redirect('/');
+        return redirect('users');
         
     }
 }
