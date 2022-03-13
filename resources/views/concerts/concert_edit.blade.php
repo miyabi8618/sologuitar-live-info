@@ -15,7 +15,11 @@
                 
                 <div class="form-group">
                     {!! Form::label('place', '場所') !!}
-                    {!! Form::text('place', null, ['class' => 'form-control']) !!}
+                    <select type="text" class="form-control" name="place">                          
+                        @foreach(config('pref') as $key => $score)
+                            <option value="{{ $score }}">{{ $score }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 
                 <div class="form-group">
@@ -25,7 +29,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('date', '公演日') !!}
-                    {!! Form::text('date', null, ['class' => 'form-control']) !!}
+                    <input type="date" name="date" max="9999-12-31">
                 </div>
                 
                 <div class="form-group">
@@ -45,7 +49,7 @@
              @if (Auth::id() == $concert->user_id)
                 {{-- 投稿削除ボタンのフォーム --}}
                 {!! Form::open(['route' => ['users.concert_destroy', $concert->id], 'method' => 'delete']) !!}
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! Form::submit('削除', ['class' => 'btn btn-danger btn-sm']) !!}
                 {!! Form::close() !!}
 
             @endif

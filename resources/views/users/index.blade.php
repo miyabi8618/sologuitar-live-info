@@ -5,12 +5,12 @@
     <div class="text-left">
         <h1>プロフィール</h1>
     </div>
-    <div class="text-left">
-        <h3>名前: {{$user->name}}</h3>
-        <h3>住所: {{$user->address}}</h3>
-        <h3>誕生日: {{$user->birthday}}</h3>
-        <h3>自己紹介: {{$user->introduction}}</h3>
-        <h3>Web: {{$user->web}}</h3>
+    <div>
+        <p class="mb-0">アーティスト名：{!! nl2br(e($user->name)) !!}</p>
+        <p class="mb-0">住所：{!! nl2br(e($user->address)) !!}</p>
+        <p class="mb-0">誕生日：{!! nl2br(e($user->birthday)) !!}</p>
+        <p class="mb-0">自己紹介：{!! nl2br(e($user->introduction)) !!}</p>
+        <p class="mb-0">WEB：{!! nl2br(e($user->web)) !!}</p>
     </div>
     {{-- プロフィール編集ページへのリンク --}}
     {!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => 'btn btn-primary']) !!}

@@ -5,10 +5,10 @@
                 <div class="media-body">
                     <div>
                         {{-- お気に入りライブ表示 --}}
-                        <p class="mb-0">{!! nl2br(e($favorite_concert->title)) !!}</p>
-                        <p class="mb-0">{!! nl2br(e($favorite_concert->place)) !!}</p>
-                        <p class="mb-0">{!! nl2br(e($favorite_concert->venue)) !!}</p>
-                        <p class="mb-0">{!! nl2br(e($favorite_concert->date)) !!}</p>
+                        <p class="mb-0">ライブ名：{!! nl2br(e($favorite_concert->title)) !!}</p>
+                        <p class="mb-0">場所：{!! nl2br(e($favorite_concert->place)) !!}</p>
+                        <p class="mb-0">会場：{!! nl2br(e($favorite_concert->venue)) !!}</p>
+                        <p class="mb-0">公演日：{!! nl2br(e($favorite_concert->date)) !!}</p>
                     </div>
                 </div>
             </li>

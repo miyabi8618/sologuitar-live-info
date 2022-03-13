@@ -19,12 +19,16 @@
                 
                 <div class="form-group">
                     {!! Form::label('address', '場所') !!}
-                    {!! Form::text('address', null, ['class' => 'form-control']) !!}
+                    <select type="text" class="form-control" name="address">                          
+                        @foreach(config('pref') as $key => $score)
+                            <option value="{{ $score }}">{{ $score }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 
                 <div class="form-group">
                     {!! Form::label('birthday', '生年月日') !!}
-                    {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
+                    <input type="date" name="birthday" max="9999-12-31">
                 </div>
                 
                 <div class="form-group">

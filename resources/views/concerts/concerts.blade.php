@@ -5,17 +5,17 @@
                 <div class="media-body">
                     <div>
                         {{-- 投稿内容 --}}
-                        <p class="mb-0">ライブ名{!! nl2br(e($concert->title)) !!}</p>
-                        <p class="mb-0">場所{!! nl2br(e($concert->place)) !!}</p>
-                        <p class="mb-0">会場{!! nl2br(e($concert->venue)) !!}</p>
-                        <p class="mb-0">日時{!! nl2br(e($concert->date)) !!}</p>
+                        <p class="mb-0">ライブ名：{!! nl2br(e($concert->title)) !!}</p>
+                        <p class="mb-0">場所：{!! nl2br(e($concert->place)) !!}</p>
+                        <p class="mb-0">会場：{!! nl2br(e($concert->venue)) !!}</p>
+                        <p class="mb-0">公演日：{!! nl2br(e($concert->date)) !!}</p>
                     </div>
                 </div>
             </li>
             @if (Auth::id() == $concert->user_id)
                 {{-- 投稿削除ボタンのフォーム --}}
                 {!! Form::open(['route' => ['users.concert_destroy', $concert->id], 'method' => 'delete']) !!}
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! Form::submit('ライブ情報を削除', ['class' => 'btn btn-danger btn-sm']) !!}
                 {!! Form::close() !!}
                 
                 {{-- ライブ情報編集ページへのリンク --}}
