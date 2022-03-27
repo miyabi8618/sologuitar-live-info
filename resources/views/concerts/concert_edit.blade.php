@@ -29,7 +29,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('date', '公演日') !!}
-                    <input type="date" name="date" max="9999-12-31">
+                    {!! Form::date('date', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">

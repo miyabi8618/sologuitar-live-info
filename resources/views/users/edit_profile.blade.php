@@ -28,7 +28,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('birthday', '生年月日') !!}
-                    <input type="date" name="birthday" max="9999-12-31">
+                    {!! Form::date('birthday', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
@@ -41,11 +41,12 @@
                     {!! Form::text('web', null, ['class' => 'form-control']) !!}
                 </div>
                 
-                <div class="form-group">
+                {{--コメントアウト<div class="form-group">
                     {!! Form::label('artist', 'アーティスト登録') !!}
-                    {{Form::checkbox('is_artist', 1, false, ['class'=>'','id'=>'checkSkill1'])}}
+                    {!! Form::checkbox('artist', '1', false, ['class'=>'circle']) !!}
+                    <p>※プロフィールが公開されます</p>
 
-                </div>
+                </div>--}}
                 {!! Form::submit('プロフィールを更新', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
             

@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->nullable();
             $table->string('introduction')->nullable();
             $table->text('web')->nullable();
-            $table->tinyInteger('artist')->default(0);
+            $table->tinyInteger('artist')->default(0)->nullable();
             $table->timestamps();
         });
     }

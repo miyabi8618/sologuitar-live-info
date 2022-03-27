@@ -6,6 +6,7 @@
             <div class="media-body">
                 <h4>アーティスト情報</h4>
                     <div>
+                        {{$user}}
                         <p class="mb-0">アーティスト名：{!! nl2br(e($user->name)) !!}</p>
                         <p class="mb-0">住所：{!! nl2br(e($user->address)) !!}</p>
                         <p class="mb-0">誕生日：{!! nl2br(e($user->birthday)) !!}</p>
@@ -17,6 +18,7 @@
                 <h4>ライブ詳細</h4>
                     <div>
                         {{-- 投稿内容 --}}
+                        {{$concert}}
                         <p class="mb-0">ライブ名：{!! nl2br(e($concert->title)) !!}</p>
                         <p class="mb-0">場所：{!! nl2br(e($concert->place)) !!}</p>
                         <p class="mb-0">会場：{!! nl2br(e($concert->venue)) !!}</p>

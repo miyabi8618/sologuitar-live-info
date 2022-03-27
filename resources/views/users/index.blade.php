@@ -6,6 +6,7 @@
         <h1>プロフィール</h1>
     </div>
     <div>
+        {{$user}}
         <p class="mb-0">アーティスト名：{!! nl2br(e($user->name)) !!}</p>
         <p class="mb-0">住所：{!! nl2br(e($user->address)) !!}</p>
         <p class="mb-0">誕生日：{!! nl2br(e($user->birthday)) !!}</p>

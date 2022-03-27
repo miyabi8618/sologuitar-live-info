@@ -84,7 +84,7 @@ class UsersController extends Controller
         $user->birthday = $reqest->birthday;
         $user->introduction = $reqest->introduction;
         $user->web = $reqest->web;
-        //$user->artist = $reqest->artist;
+        $user->artist = $reqest->artist;
         $user->save();
         
         // ユーザページへリダイレクトさせる
