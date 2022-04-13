@@ -41,12 +41,12 @@
                     {!! Form::text('web', null, ['class' => 'form-control']) !!}
                 </div>
                 
-                {{--コメントアウト<div class="form-group">
+                <div class="form-group">
                     {!! Form::label('artist', 'アーティスト登録') !!}
                     {!! Form::checkbox('artist', '1', false, ['class'=>'circle']) !!}
                     <p>※プロフィールが公開されます</p>
 
-                </div>--}}
+                </div>
                 {!! Form::submit('プロフィールを更新', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
             

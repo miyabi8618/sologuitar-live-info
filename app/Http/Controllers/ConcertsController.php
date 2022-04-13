@@ -10,13 +10,19 @@ class ConcertsController extends Controller
 {
     public function index()
     {
-       $concerts = Concert::orderBy('date', 'desc')->get();
-       
+        $concerts = Concert::orderBy('date', 'desc')->paginate(10);
         
-        // コンサートの一覧を公演日の降順で取得
-           
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        
+        
+        
         return view('welcome',[
             'concerts' => $concerts,
+            'user' => $artist_user,
         ]);
     }
     
