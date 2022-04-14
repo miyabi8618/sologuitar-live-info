@@ -9,12 +9,12 @@
             {!! Form::model($concert, ['route' => 'users.concert_store']) !!}
 
                 <div class="form-group">
-                    {!! Form::label('title', 'ライブタイトル') !!}
+                    {!! Form::label('title', 'ライブタイトル[必須]') !!}
                     {!! Form::text('title', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('place', '場所') !!}
+                    {!! Form::label('place', '場所[必須]') !!}
                     <select type="text" class="form-control" name="place">                          
                         @foreach(config('pref') as $key => $score)
                             <option value="{{ $score }}">{{ $score }}</option>
@@ -23,12 +23,12 @@
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('venue', 'ライブ会場') !!}
+                    {!! Form::label('venue', 'ライブ会場[必須]') !!}
                     {!! Form::text('venue', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('date', '公演日') !!}
+                    {!! Form::label('date', '公演日[必須]') !!}
                     {!! Form::date('date', null, ['class' => 'form-control']) !!}
                 </div>
                 

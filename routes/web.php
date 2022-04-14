@@ -14,14 +14,18 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 //ログインしたひとだけの機能
 Route::group(['middleware' => ['auth']], function () {
-    //ユーザのプロフィールを編集
+    //ユーザのトップページ
     Route::get('users', 'UsersController@index')->name('users.index');
+    //ユーザープロフィールの作成
+
+    //ユーザープロフィールの編集
     Route::get('users/{user}/edit', 'UsersController@edit')->name('users.edit');
     Route::put('users/{user}', 'UsersController@update')->name('users.update');
     Route::delete('users/{user}', 'UsersController@destroy')->name('users.destroy');
     //ユーザーがライブ情報を作成する機能
     Route::get('users/concert_create','UsersController@concert_create')->name('users.concert_create');
     Route::post('users','UsersController@concert_store')->name('users.concert_store');
+    //ユーザーがライブ情報を編集する機能
     Route::delete('users/{user}/concert_destroy', 'UsersController@concert_destroy')->name('users.concert_destroy');
     Route::get('users/{concert}/concert_edit', 'UsersController@concert_edit')->name('users.concert_edit');
     Route::put('users/{concert}/concert_update', 'UsersController@concert_update')->name('users.concert_update');

@@ -33,9 +33,9 @@ class UsersController extends Controller
     
     
     
-    public function search(Request $reqest)
+    public function search(Request $request)
     {
-        $search_keyword = $reqest->keyword;
+        $search_keyword = $request->keyword;
         
         // 指定されたキーワードで検索する
         $users = User::find($search_keyword);
@@ -48,17 +48,8 @@ class UsersController extends Controller
         
     }
     
-    public function create($id)
-    {
-        $id = \Auth::user()->id;
-        //idで検索しユーザーテーブルを取得
-        $user = User::findOrFail($id);
-        
-        //プロフィール作成ビューでそれを表示
-        return view('users.create_profile',[
-            'user' => $user,
-        ]);
-    }
+    //アカウント作成後のユーザー情報作成ページ(未作成)
+
     
     public function edit($id)
     {
@@ -73,18 +64,23 @@ class UsersController extends Controller
 
     }
     
-    public function update(Request $reqest, $id)
+    public function update(Request $request, $id)
     {
+        // バリデーション
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+        
         $id = \Auth::user()->id;
         //idで検索しユーザーテーブルを取得
         $user = User::findOrFail($id);
         //$userを更新
-        $user->name = $reqest->name;
-        $user->address = $reqest->address;
-        $user->birthday = $reqest->birthday;
-        $user->introduction = $reqest->introduction;
-        $user->web = $reqest->web;
-        $user->artist = $reqest->artist;
+        $user->name = $request->name;
+        $user->address = $request->address;
+        $user->birthday = $request->birthday;
+        $user->introduction = $request->introduction;
+        $user->web = $request->web;
+        $user->artist = $request->artist;
         $user->save();
         
         // ユーザページへリダイレクトさせる
@@ -116,20 +112,29 @@ class UsersController extends Controller
     }
     
     //ライブ情報フォームからconcertテーブルに格納する
-    public function concert_store(Request $reqest)
+    public function concert_store(Request $request)
     {
-        $reqest->user()->concerts()->create([
-            'title' => $reqest->title,
-            'place' => $reqest->place,
-            'venue' => $reqest->venue,
-            'date' => $reqest->date,
-            'content' => $reqest->content,
-            'web' => $reqest->web,
+        // バリデーション
+        $request->validate([
+            'title' => 'required|max:255',
+            'place' => 'required|max:255',
+            'venue' => 'required|max:255',
+            'date' => 'required|max:255',
+        ]);
+        
+        $request->user()->concerts()->create([
+            'title' => $request->title,
+            'place' => $request->place,
+            'venue' => $request->venue,
+            'date' => $request->date,
+            'content' => $request->content,
+            'web' => $request->web,
         ]);
         
         // トップページへリダイレクトさせる
         return redirect('users');
     }
+    
     public function concert_destroy($id)
     {
         // idの値で投稿を検索して取得
@@ -156,18 +161,26 @@ class UsersController extends Controller
 
     }
     
-    public function concert_update(Request $reqest, $id)
+    //コンサートをアップデートする
+    public function concert_update(Request $request, $id)
     {
+        // バリデーション
+        $request->validate([
+            'title' => 'required|max:255',
+            'place' => 'required|max:255',
+            'venue' => 'required|max:255',
+            'date' => 'required|max:255',
+        ]);
         
         //idで検索しユーザーテーブルを取得
         $concert = Concert::findOrFail($id);
         //$concertを更新
-        $concert->title = $reqest->title;
-        $concert->place = $reqest->place;
-        $concert->venue = $reqest->venue;
-        $concert->date = $reqest->date;
-        $concert->content = $reqest->content;
-        $concert->web = $reqest->web;
+        $concert->title = $request->title;
+        $concert->place = $request->place;
+        $concert->venue = $request->venue;
+        $concert->date = $request->date;
+        $concert->content = $request->content;
+        $concert->web = $request->web;
 
         $concert->save();
         

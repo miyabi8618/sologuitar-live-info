@@ -19,12 +19,16 @@
                 
                 <div class="form-group">
                     {!! Form::label('address', '場所') !!}
-                    {!! Form::text('address', null, ['class' => 'form-control']) !!}
+                    <select type="text" class="form-control" name="address">                          
+                        @foreach(config('pref') as $key => $score)
+                            <option value="{{ $score }}">{{ $score }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 
                 <div class="form-group">
                     {!! Form::label('birthday', '生年月日') !!}
-                    {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
+                    {!! Form::date('birthday', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
@@ -39,10 +43,11 @@
                 
                 <div class="form-group">
                     {!! Form::label('artist', 'アーティスト登録') !!}
-                    {{Form::checkbox('checkSkill', 'PHP／Laravel', false, ['class'=>'custom-control-input','id'=>'checkSkill1'])}}
+                    {!! Form::checkbox('artist', '1', false, ['class'=>'circle']) !!}
+                    <p>※プロフィールが公開されます</p>
 
                 </div>
-                {!! Form::submit('新規登録', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('プロフィールを更新', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
         </div>
     </div>

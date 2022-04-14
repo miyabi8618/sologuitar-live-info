@@ -3,7 +3,7 @@
 @section('content')
     
     <div class="text-center">
-        <h1>プロフィール作成</h1>
+        <h1>プロフィール</h1>
     </div>
 
     <div class="row">
@@ -13,7 +13,7 @@
                 {{-- ユーザーの新規作成後に必要なフォームを作成（プロフィール作成ページ）--}}
 
                 <div class="form-group">
-                    {!! Form::label('name', '名前') !!}
+                    {!! Form::label('name', '名前[必須]') !!}
                     {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 </div>
                 
