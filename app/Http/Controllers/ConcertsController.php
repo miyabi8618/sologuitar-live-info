@@ -40,4 +40,25 @@ class ConcertsController extends Controller
             'user' => $user,
         ]);
     }
+    
+    public function search(Request $request){
+        $concerts = Concert::where('title','like' ,"%{$request->search}%")
+                   ->orWhere('content', 'like' ,"%{$request->search}%")
+                   ->orderBy('date', 'desc')
+                   ->paginate(10);
+       
+        $search_result = $request->search .'の検索結果'.$concerts->total().'件';
+        
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        
+       return view('welcome',[
+            'concerts' => $concerts,
+            'user' => $artist_user,
+            'search_result' => $search_result,
+        ]);
+    }
 }

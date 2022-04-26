@@ -1,3 +1,7 @@
+@isset($search_result)
+    <h5>{{ $search_result }}</h5>
+@endisset
+
 @if (count($concerts) > 0)
     <ul class="list-unstyled">
         @foreach ($concerts as $concert)
@@ -18,5 +22,5 @@
         @endforeach
     </ul>
     {{-- ページネーションのリンク --}}
-    {{ $concerts->links() }}
+    {{$concerts->appends(request()->query())->links()}} 
 @endif

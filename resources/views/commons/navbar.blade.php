@@ -40,9 +40,12 @@
                         <li class="nav-item"><a href="{{ url('/search_area') }}" class="nav-link">地域から探す</a></li>
                         {{-- アーティストから探すページへのリンク --}}
                         <li class="nav-item"><a href="{{ url('/search_word') }}" class="nav-link">アーティストから探す　　</a></li>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+                        {{--検索フォーム--}}
+                        <form class="form-inline my-2 my-lg-0" action = "{{ route('concerts.search') }}" method = "get">
+                            {{ csrf_field() }}
+                            <input class="form-control mr-sm-2" type="text" placeholder="search" name="search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+                            </input>
                         </form>
                     </ul>
                 </div>
