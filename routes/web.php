@@ -4,7 +4,8 @@
 Route::get('/', 'ConcertsController@index');
 Route::resource('concerts', 'ConcertsController',  ['only' => ['show']]);
 //検索機能
-Route::get('/form/search','ConcertsController@search')->name('concerts.search');
+Route::get('/concert/search','ConcertsController@search')->name('concerts.search');
+
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');

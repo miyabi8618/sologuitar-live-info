@@ -14,7 +14,7 @@
           <li class="list-group-item">WEB：{!! nl2br(e($user->web)) !!}</li>
         </ul>
         {{-- プロフィール編集ページへのリンク --}}
-        <p class = pt-1>{!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => 'btn btn-primary']) !!}</p>
+        <p class = pt-1>{!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => "btn btn-outline-secondary my-2 my-sm-0"]) !!}</p>
     </div>
 </div>
 

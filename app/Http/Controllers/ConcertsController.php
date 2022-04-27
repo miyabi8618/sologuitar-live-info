@@ -44,6 +44,7 @@ class ConcertsController extends Controller
     public function search(Request $request){
         $concerts = Concert::where('title','like' ,"%{$request->search}%")
                    ->orWhere('content', 'like' ,"%{$request->search}%")
+                   ->orwhere('date','like' ,"%{$request->search}%")
                    ->orderBy('date', 'desc')
                    ->paginate(10);
        
@@ -61,4 +62,5 @@ class ConcertsController extends Controller
             'search_result' => $search_result,
         ]);
     }
+
 }

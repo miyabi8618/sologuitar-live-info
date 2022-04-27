@@ -2,8 +2,8 @@
 
 @section('content')
     
-    <div class="text-center">
-        <h1>プロフィール</h1>
+    <div class="text-center mt-5 mb-4">
+        <h3>プロフィール</h3>
     </div>
 
     <div class="row">
@@ -47,13 +47,18 @@
                     <p>※プロフィールが公開されます</p>
 
                 </div>
-                {!! Form::submit('プロフィールを更新', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('プロフィールを更新', ['class' => 'btn btn-outline-primary my-2 mt-5']) !!}
             {!! Form::close() !!}
             
-            {{-- アカウント削除 --}}
-            {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-            {!! Form::close() !!}
+            <div onclick="return Delete_check()">
+                @if (Auth::id() == $user->id)
+                    {{-- アカウント削除 --}}
+                    {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                        {!! Form::submit('アカウント削除', ['class' => 'btn btn-outline-danger my-2 mt-5']) !!}
+                    {!! Form::close() !!}
+                @endif
+            </div>
+            
         </div>
     </div>
     

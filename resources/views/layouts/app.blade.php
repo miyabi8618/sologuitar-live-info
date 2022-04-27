@@ -4,7 +4,19 @@
         <meta charset="utf-8">
         <title>ソロギターライブ情報</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {{-- 削除確認 --}}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+               <script language="JavaScript" type="text/JavaScript">
+
+            function Delete_check(){
+                let checked = confirm("本当に削除しますか？");
+                if (checked == true) {
+                    return true;
+            } else {
+                    return false;
+            }
+          }
+       </script> 
     </head>
 
     <body>

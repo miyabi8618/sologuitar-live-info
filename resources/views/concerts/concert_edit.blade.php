@@ -2,10 +2,12 @@
 
 @section('content')
 
-    <h1>ライブ情報編集</h1>
+    <div class="text-center mt-5 mb-4">
+        <h3>ライブ情報編集</h3>
+    </div>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-sm-6 offset-sm-3">
             {!! Form::model($concert, ['route' => ['users.concert_update',$concert->id], 'method' => 'put']) !!}
 
                 <div class="form-group">
@@ -42,17 +44,19 @@
                     {!! Form::text('web', null, ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('登録', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('登録', ['class' => "btn btn-outline-primary my-2 mt-5"]) !!}
 
             {!! Form::close() !!}
             
-             @if (Auth::id() == $concert->user_id)
-                {{-- 投稿削除ボタンのフォーム --}}
-                {!! Form::open(['route' => ['users.concert_destroy', $concert->id], 'method' => 'delete']) !!}
-                {!! Form::submit('削除', ['class' => 'btn btn-danger btn-sm']) !!}
-                {!! Form::close() !!}
-
-            @endif
+            <div onclick="return Delete_check()">
+                @if (Auth::id() == $concert->user_id)
+                    {{-- 投稿削除ボタンのフォーム --}}
+                    {!! Form::open(['route' => ['users.concert_destroy', $concert->id], 'method' => 'delete']) !!}
+                    {!! Form::submit('削除', ['class' => "btn btn-outline-danger my-2 mt-4 "]) !!}
+                    {!! Form::close() !!}
+                @endif
+            </div>
+            
         </div>
     </div>
 @endsection

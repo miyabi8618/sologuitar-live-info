@@ -12,13 +12,8 @@
                     </div>
                                     
             @if (Auth::id() == $concert->user_id)
-                {{-- 投稿削除ボタンのフォーム --}}
-                {!! Form::open(['route' => ['users.concert_destroy', $concert->id], 'method' => 'delete']) !!}
-                {!! Form::submit('ライブ情報を削除', ['class' => 'btn btn-danger btn-sm']) !!}
-                {!! Form::close() !!}
-                
                 {{-- ライブ情報編集ページへのリンク --}}
-                {!! link_to_route('users.concert_edit', 'ライブ情報を編集', ['concert' => $concert->id], ['class' => 'btn btn-primary']) !!}
+                {!! link_to_route('users.concert_edit', 'ライブ情報を編集', ['concert' => $concert->id], ['class' => "btn btn-outline-secondary my-2 my-sm-0"]) !!}
             @endif
                 </div>
 
