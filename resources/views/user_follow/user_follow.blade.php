@@ -1,7 +1,7 @@
 @if (count($follow_users) > 0)
     <ul class="list-unstyled">
         @foreach ($follow_users as $follow_user)
-            <li class="media mb-3">
+            <div class="media-body border border-secondary rounded  p-1">
                 <div class="media-body">
                     <div>
                         {{-- 投稿内容 --}}
@@ -10,7 +10,7 @@
                         
                     </div>
                 </div>
-            </li>
+            </div>
 
         @endforeach
     </ul>

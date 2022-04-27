@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
             {{-- トップページへのリンク --}}
-            <a class="navbar-brand" href="/">ソロギターライブ情報</a>
+            <a class="navbar-brand" href="/"><h3>ソロギターライブ情報</h3></a>
     
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
                 <span class="navbar-toggler-icon"></span>

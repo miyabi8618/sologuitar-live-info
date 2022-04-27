@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <div class="text-left">
-        <h1>全国の公演情報</h1>
+    <div class="text-left py-4">
+        <h2>全国の公演情報</h2>
     </div>
 
     @include('concerts.all_concert')

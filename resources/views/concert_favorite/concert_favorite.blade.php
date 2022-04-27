@@ -1,8 +1,8 @@
 @if (count($favorite_concerts) > 0)
     <ul class="list-unstyled">
         @foreach ($favorite_concerts as $favorite_concert)
-            <li class="media mb-3">
-                <div class="media-body">
+            <li class="media p-2">
+                <div class="media-body border border-secondary rounded  p-1">
                     <div>
                         {{-- お気に入りライブ表示 --}}
                         <p class="mb-0">ライブ名：{!! nl2br(e($favorite_concert->title)) !!}</p>
@@ -12,7 +12,6 @@
                     </div>
                 </div>
             </li>
-
         @endforeach
     </ul>
     {{-- ページネーションのリンク --}}

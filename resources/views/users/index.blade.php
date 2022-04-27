@@ -1,41 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-    
-    <div class="text-left">
-        <h1>プロフィール</h1>
-    </div>
-    <div>
-        {{$user}}
-        <p class="mb-0">アーティスト名：{!! nl2br(e($user->name)) !!}</p>
-        <p class="mb-0">住所：{!! nl2br(e($user->address)) !!}</p>
-        <p class="mb-0">誕生日：{!! nl2br(e($user->birthday)) !!}</p>
-        <p class="mb-0">自己紹介：{!! nl2br(e($user->introduction)) !!}</p>
-        <p class="mb-0">WEB：{!! nl2br(e($user->web)) !!}</p>
-    </div>
-    {{-- プロフィール編集ページへのリンク --}}
-    {!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => 'btn btn-primary']) !!}
-    {{-- ライブ情報の作成ページへのリンク --}}
-    {!! link_to_route('users.concert_create', 'ライブ情報の作成', [], ['class' => 'btn btn-primary']) !!}
 
 
-    
-    
-    
-    
-    
-    <div class="text-left">
-        <h1>お気に入り登録したライブ</h1>
+<div class="text-left mt-5">
+    <h4>プロフィール</h4>    
+    <div class="media-body border border-secondary rounded  p-3 ">
+        <ul class="list-group">
+          <li class="list-group-item">アーティスト名：{!! nl2br(e($user->name)) !!}</li>
+          <li class="list-group-item">住所：{!! nl2br(e($user->address)) !!}</li>
+          <li class="list-group-item">誕生日：{!! nl2br(e($user->birthday)) !!}</li>
+          <li class="list-group-item">自己紹介：{!! nl2br(e($user->introduction)) !!}</li>
+          <li class="list-group-item">WEB：{!! nl2br(e($user->web)) !!}</li>
+        </ul>
+        {{-- プロフィール編集ページへのリンク --}}
+        <p class = pt-1>{!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => 'btn btn-primary']) !!}</p>
+    </div>
+</div>
+
+{{--お気に入りライブ--}}
+    <div class="text-left mt-5">
+        <h4>お気に入り登録したライブ</h4>
         @include('concert_favorite.concert_favorite')
     </div>
     
-    <div class="text-left">
-        <h1>お気に入りアーティスト</h1>
+{{--お気に入りアーティスト--}}    
+    <div class="text-left mt-5">
+        <h4>お気に入りアーティスト</h4>
         @include('user_follow.user_follow')
     </div>
     
-    <div class="text-left">
-        <h1>公開したライブ</h1>
+{{--公開ライブ--}}    
+    <div class="text-left mt-5">
+        <h4>公開したライブ</h4>
         @include('concerts.concerts')
     </div>
     
