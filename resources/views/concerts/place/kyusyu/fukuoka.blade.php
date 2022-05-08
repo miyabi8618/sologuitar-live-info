@@ -1,19 +1,13 @@
-@if(isset($search_result))
-    <h5>{{ $search_result }}</h5>
-@else
-    {{--検索フォーム--}}
-    <form class="form-inline my-2 my-lg-0" action = "{{ route('concerts.search') }}" method = "get">
-        {{ csrf_field() }}
-        <input class="form-control mr-sm-2" type="date" placeholder="search" name="search">
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">検索</button>
-        </input>
-    </form>
-@endif
+@extends('layouts.app')
 
-@if (count($concerts) > 0)
-    <ul class="list-unstyled">
-        @foreach ($concerts as $concert)
-            @if(in_array($concert->user_id , $user ,true))
+@section('content')
+
+
+    <h3 class='mb-5'>福岡で開催されるライブ</h3>   
+    
+@if (count($concerts) > 0)    
+    @foreach ($concerts as $concert)
+         @if(in_array($concert->user_id , $user ,true))
                 <li class="media p-4">
                     <div class="media-body border border-secondary rounded  p-3">
                         <div>
@@ -26,9 +20,10 @@
                         </div>
                     </div>
                 </li>
-            @endif    
-        @endforeach
-    </ul>
-    {{-- ページネーションのリンク --}}
-    {{$concerts->appends(request()->query())->links()}} 
+            @endif
+    @endforeach
 @endif
+
+    {{ $concerts->links() }}
+    
+@endsection

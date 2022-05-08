@@ -40,7 +40,9 @@ class ConcertsController extends Controller
             'user' => $user,
         ]);
     }
-    
+
+
+    //検索機能実装    
     public function search(Request $request){
         $concerts = Concert::where('title','like' ,"%{$request->search}%")
                    ->orWhere('content', 'like' ,"%{$request->search}%")
@@ -62,5 +64,36 @@ class ConcertsController extends Controller
             'search_result' => $search_result,
         ]);
     }
+
+    //地域から探すページ作成（place_concerts）
+    public function place_index()
+    {
+        return view('concerts.place.place_index', [
+
+        ]);        
+    }
+    
+    public function fukuoka()
+    {
+        $concerts = Concert::where('place', '福岡県')->paginate(10);
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        return view('concerts.place.kyusyu.fukuoka', [
+            'concerts' => $concerts,
+            'user' => $artist_user, 
+        ]);
+    }
+    public function saga()
+    {
+        
+    }
+    public function nagasaki()
+    {
+        
+    }
+    
 
 }

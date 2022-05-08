@@ -3,6 +3,15 @@
 //全員が使用できる
 Route::get('/', 'ConcertsController@index');
 Route::resource('concerts', 'ConcertsController',  ['only' => ['show']]);
+//場所から検索
+Route::get('place','ConcertsController@place_index');
+Route::group(['prefix' => 'place/kyusyu', 'as' => 'concerts.place.kyusyu.'], function () {
+  Route::get('fukuoka', 'ConcertsController@fukuoka')->name('fukuoka');
+  Route::get('saga', 'ConcertsController@saga')->name('saga');
+  Route::get('nagasaki', 'ConcertsController@nagasaki')->name('nagasaki');
+    });
+
+
 //検索機能
 Route::get('/concert/search','ConcertsController@search')->name('concerts.search');
 
