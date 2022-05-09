@@ -8,6 +8,7 @@ use App\Concert;
 
 class ConcertsController extends Controller
 {
+    
     public function index()
     {
         $concerts = Concert::orderBy('date', 'desc')->paginate(10);
@@ -81,19 +82,107 @@ class ConcertsController extends Controller
         foreach($users as $user){
            $artist_user[] = $user->id;
         }
-        return view('concerts.place.kyusyu.fukuoka', [
+        return view('concerts.place.kyushu.fukuoka', [
             'concerts' => $concerts,
             'user' => $artist_user, 
         ]);
     }
+    
     public function saga()
     {
-        
-    }
-    public function nagasaki()
-    {
-        
+        $concerts = Concert::where('place', '佐賀県')->paginate(10);
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        return view('concerts.place.kyushu.saga', [
+            'concerts' => $concerts,
+            'user' => $artist_user, 
+        ]);    
     }
     
-
+    public function nagasaki()
+    {
+        $concerts = Concert::where('place', '長崎県')->paginate(10);
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        return view('concerts.place.kyushu.nagasaki', [
+            'concerts' => $concerts,
+            'user' => $artist_user, 
+        ]);    
+    }
+    
+    public function kumamoto()
+    {
+        $concerts = Concert::where('place', '熊本県')->paginate(10);
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        return view('concerts.place.kyushu.kumamoto', [
+            'concerts' => $concerts,
+            'user' => $artist_user, 
+        ]);
+    }
+    
+    public function oita()
+    {
+        $concerts = Concert::where('place', '大分県')->paginate(10);
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        return view('concerts.place.kyushu.oita', [
+            'concerts' => $concerts,
+            'user' => $artist_user, 
+        ]);
+    }
+    
+    public function miyazaki()
+    {
+        $concerts = Concert::where('place', '宮崎県')->paginate(10);
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        return view('concerts.place.kyushu.miyazaki', [
+            'concerts' => $concerts,
+            'user' => $artist_user, 
+        ]);
+    }
+    
+    public function kagoshima()
+    {
+        $concerts = Concert::where('place', '鹿児島県')->paginate(10);
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        return view('concerts.place.kyushu.kagoshima', [
+            'concerts' => $concerts,
+            'user' => $artist_user, 
+        ]);
+    }
+    
+    public function okinawa()
+    {
+        $concerts = Concert::where('place', '沖縄県')->paginate(10);
+        $users = User::where('artist',1)->get();
+        $artist_user = [];
+        foreach($users as $user){
+           $artist_user[] = $user->id;
+        }
+        return view('concerts.place.kyushu.okinawa', [
+            'concerts' => $concerts,
+            'user' => $artist_user, 
+        ]);
+    }
 }

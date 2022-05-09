@@ -5,10 +5,15 @@ Route::get('/', 'ConcertsController@index');
 Route::resource('concerts', 'ConcertsController',  ['only' => ['show']]);
 //場所から検索
 Route::get('place','ConcertsController@place_index');
-Route::group(['prefix' => 'place/kyusyu', 'as' => 'concerts.place.kyusyu.'], function () {
+Route::group(['prefix' => 'place/kyushu', 'as' => 'concerts.place.kyushu.'], function () {
   Route::get('fukuoka', 'ConcertsController@fukuoka')->name('fukuoka');
   Route::get('saga', 'ConcertsController@saga')->name('saga');
   Route::get('nagasaki', 'ConcertsController@nagasaki')->name('nagasaki');
+  Route::get('kumamoto', 'ConcertsController@kumamoto')->name('kumamoto');
+  Route::get('oita', 'ConcertsController@oita')->name('oita');
+  Route::get('miyazaki', 'ConcertsController@miyazaki')->name('miyazaki');
+  Route::get('kagoshima', 'ConcertsController@kagoshima')->name('kagoshima');
+  Route::get('okinawa', 'ConcertsController@okinawa')->name('okinawa');
     });
 
 

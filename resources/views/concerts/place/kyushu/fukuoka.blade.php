@@ -3,7 +3,9 @@
 @section('content')
 
 
-    <h3 class='mb-5'>福岡で開催されるライブ</h3>   
+    <div class="text-left py-4">
+        <h2>福岡県の公演情報</h2>
+    </div> 
     
 @if (count($concerts) > 0)    
     @foreach ($concerts as $concert)
