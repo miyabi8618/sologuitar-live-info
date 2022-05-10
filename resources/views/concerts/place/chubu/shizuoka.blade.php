@@ -4,7 +4,7 @@
 
 
     <div class="text-left py-4">
-        <h2>佐賀県の公演情報</h2>
+        <h2>静岡県の公演情報</h2>
     </div> 
     
 @if (count($concerts) > 0)    
