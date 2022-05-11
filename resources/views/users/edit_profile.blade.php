@@ -18,6 +18,11 @@
                 </div>
                 
                 <div class="form-group">
+                    {!! Form::label('ruby', 'ふりがな（全角）[必須]') !!}
+                    {!! Form::text('ruby', null, ['class' => 'form-control']) !!}
+                </div>
+                
+                <div class="form-group">
                     {!! Form::label('address', '場所') !!}
                     <select type="text" class="form-control" name="address">                          
                         @foreach(config('pref') as $key => $score)

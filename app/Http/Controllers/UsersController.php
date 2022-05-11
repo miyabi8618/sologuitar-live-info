@@ -69,6 +69,7 @@ class UsersController extends Controller
         // バリデーション
         $request->validate([
             'name' => 'required|max:255',
+            'ruby' => 'required|max:255',
         ]);
         
         $id = \Auth::user()->id;
@@ -81,6 +82,7 @@ class UsersController extends Controller
         $user->introduction = $request->introduction;
         $user->web = $request->web;
         $user->artist = $request->artist;
+        $user->ruby = $request->ruby;
         $user->save();
         
         // ユーザページへリダイレクトさせる
