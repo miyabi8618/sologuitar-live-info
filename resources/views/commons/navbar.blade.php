@@ -36,15 +36,17 @@
                 </div>
                 <div class="collapse navbar-collapse justify-content-center">
                     <ul class="navbar-nav">
+                        {{-- 全国から探すページへのリンク --}}
+                        <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">全国の公演情報</a></li>
                         {{-- 地域から探すページへのリンク --}}
                         <li class="nav-item"><a href="{{ url('place') }}" class="nav-link">地域から探す</a></li>
                         {{-- アーティストから探すページへのリンク --}}
-                        <li class="nav-item"><a href="{{ url('/search_word') }}" class="nav-link">アーティストから探す　　</a></li>
+                        <li class="nav-item"><a href="{{ url('search_users') }}" class="nav-link">アーティストから探す　　</a></li>
                         {{--検索フォーム--}}
                         <form class="form-inline my-2 my-lg-0" action = "{{ route('concerts.search') }}" method = "get">
                             {{ csrf_field() }}
                             <input class="form-control mr-sm-2" type="text" placeholder="search" name="search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+                                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">検索</button>
                             </input>
                         </form>
                     </ul>

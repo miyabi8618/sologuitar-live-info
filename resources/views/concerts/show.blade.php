@@ -12,6 +12,7 @@
                           <li class="list-group-item">誕生日：{!! nl2br(e($user->birthday)) !!}</li>
                           <li class="list-group-item">自己紹介：{!! nl2br(e($user->introduction)) !!}</li>
                           <li class="list-group-item">WEB：{!! nl2br(e($user->web)) !!}</li>
+                          <p>{!! link_to_route('concerts.user_show', '他のライブ', ['user' => $user->id]) !!}</p>
                         </ul>
 
                     {{-- フォロー／アンフォローボタン --}}
@@ -43,6 +44,7 @@
                       <li class="list-group-item">誕生日：{!! nl2br(e($user->birthday)) !!}</li>
                       <li class="list-group-item">自己紹介：{!! nl2br(e($user->introduction)) !!}</li>
                       <li class="list-group-item">WEB：{!! nl2br(e($user->web)) !!}</li>
+                      <p>{!! link_to_route('concerts.user_show', '他のライブ', ['user' => $user->id]) !!}</p>
                     </ul>
             </div>
         

@@ -2,7 +2,12 @@
 
 //全員が使用できる
 Route::get('/', 'ConcertsController@index');
+//ライブ詳細ページ
 Route::resource('concerts', 'ConcertsController',  ['only' => ['show']]);
+
+//ライブ詳細ページ
+Route::get('concerts/user/{user}','ConcertsController@user_show')->name('concerts.user_show');
+
 //場所から検索  Route::get('', 'ConcertsController@')->name(''); 
 Route::get('place','ConcertsController@place_index');
 
@@ -73,9 +78,57 @@ Route::group(['prefix' => 'place/shikoku', 'as' => 'concerts.place.shikoku.'], f
   Route::get('ehime', 'ConcertsController@ehime')->name('ehime'); 
   Route::get('kochi', 'ConcertsController@kochi')->name('kochi'); 
     });
-    
-    
-    
+
+//ユーザー名から検索    
+Route::get('search_users','ConcertsController@search_users_index');
+Route::group(['prefix' => 'search_users', 'as' => 'concerts.search_users.search_word.'], function () {
+  Route::get('a', 'ConcertsController@a')->name('a');
+  Route::get('i', 'ConcertsController@i')->name('i');
+  Route::get('u', 'ConcertsController@u')->name('u');
+  Route::get('e', 'ConcertsController@e')->name('e');
+  Route::get('o', 'ConcertsController@o')->name('o');
+  Route::get('ka', 'ConcertsController@ka')->name('ka');
+  Route::get('ki', 'ConcertsController@ki')->name('ki');
+  Route::get('ku', 'ConcertsController@ku')->name('ku');
+  Route::get('ke', 'ConcertsController@ke')->name('ke');
+  Route::get('ko', 'ConcertsController@ko')->name('ko');
+  Route::get('sa', 'ConcertsController@sa')->name('sa');
+  Route::get('si', 'ConcertsController@si')->name('si');
+  Route::get('su', 'ConcertsController@su')->name('su');
+  Route::get('se', 'ConcertsController@se')->name('se');
+  Route::get('so', 'ConcertsController@so')->name('so');
+  Route::get('ta', 'ConcertsController@ta')->name('ta');
+  Route::get('ti', 'ConcertsController@ti')->name('ti');
+  Route::get('tu', 'ConcertsController@tu')->name('tu');
+  Route::get('te', 'ConcertsController@te')->name('te');
+  Route::get('to', 'ConcertsController@to')->name('to');
+  Route::get('na', 'ConcertsController@na')->name('na');
+  Route::get('ni', 'ConcertsController@ni')->name('ni');
+  Route::get('nu', 'ConcertsController@nu')->name('nu');
+  Route::get('ne', 'ConcertsController@ne')->name('ne');
+  Route::get('no', 'ConcertsController@no')->name('no');
+  Route::get('ha', 'ConcertsController@ha')->name('ha');
+  Route::get('hi', 'ConcertsController@hi')->name('hi');
+  Route::get('hu', 'ConcertsController@hu')->name('hu');
+  Route::get('he', 'ConcertsController@he')->name('he');
+  Route::get('ho', 'ConcertsController@ho')->name('ho');
+  Route::get('ma', 'ConcertsController@ma')->name('ma');
+  Route::get('mi', 'ConcertsController@mi')->name('mi');
+  Route::get('mu', 'ConcertsController@mu')->name('mu');
+  Route::get('me', 'ConcertsController@me')->name('me');
+  Route::get('mo', 'ConcertsController@mo')->name('mo');
+  Route::get('ya', 'ConcertsController@ya')->name('ya');
+  Route::get('yu', 'ConcertsController@yu')->name('yu');
+  Route::get('yo', 'ConcertsController@yo')->name('yo');
+  Route::get('ra', 'ConcertsController@ra')->name('ra');
+  Route::get('ri', 'ConcertsController@ri')->name('ri');
+  Route::get('ru', 'ConcertsController@ru')->name('ru');
+  Route::get('re', 'ConcertsController@re')->name('re');
+  Route::get('ro', 'ConcertsController@ro')->name('ro');
+  Route::get('wa', 'ConcertsController@wa')->name('wa');
+  Route::get('wo', 'ConcertsController@wo')->name('wo');
+  Route::get('wu', 'ConcertsController@wu')->name('wu');
+    });
 
 
 //検索機能
