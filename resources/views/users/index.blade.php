@@ -11,7 +11,10 @@
           <li class="list-group-item">住所：{!! nl2br(e($user->address)) !!}</li>
           <li class="list-group-item">誕生日：{!! nl2br(e($user->birthday)) !!}</li>
           <li class="list-group-item">自己紹介：{!! nl2br(e($user->introduction)) !!}</li>
-          <li class="list-group-item">WEB：{!! nl2br(e($user->web)) !!}</li>
+          <li class="list-group-item">WEB：
+            <a href="{!! nl2br(e($user->web)) !!}">{!! nl2br(e($user->web)) !!}</a>
+          </li>
+        　    
         </ul>
         {{-- プロフィール編集ページへのリンク --}}
         <p class = pt-1>{!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => "btn btn-outline-secondary my-2 my-sm-0"]) !!}</p>
