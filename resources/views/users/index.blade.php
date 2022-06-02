@@ -7,14 +7,41 @@
     <h4>プロフィール</h4>    
     <div class="media-body border border-secondary rounded  p-3 ">
         <ul class="list-group">
-          <li class="list-group-item">アーティスト名：{!! nl2br(e($user->name)) !!}</li>
-          <li class="list-group-item">住所：{!! nl2br(e($user->address)) !!}</li>
-          <li class="list-group-item">誕生日：{!! nl2br(e($user->birthday)) !!}</li>
-          <li class="list-group-item">自己紹介：{!! nl2br(e($user->introduction)) !!}</li>
-          <li class="list-group-item">WEB：
+          
+          @if(empty($user->name))
+        　  @else
+        　  <li class="list-group-item">アーティスト名：{!! nl2br(e($user->name)) !!}</li>
+        　@endif
+          
+          @if(empty($user->address))
+        　  @else
+        　  <li class="list-group-item">住所：{!! nl2br(e($user->address)) !!}</li>
+        　@endif
+        　
+        　@if(empty($user->birthday))
+        　  @else
+        　  <li class="list-group-item">誕生日：{!! nl2br(e($user->birthday)) !!}</li></li>
+        　@endif
+          
+          @if(empty($user->introduction))
+        　  @else
+        　  <li class="list-group-item">自己紹介：{!! nl2br(e($user->introduction)) !!}</li>
+        　@endif
+        　
+        　@if(empty($user->web))
+        　  @else
+        　  <li class="list-group-item">WEB：
             <a href="{!! nl2br(e($user->web)) !!}">{!! nl2br(e($user->web)) !!}</a>
-          </li>
-        　    
+            </li>
+        　@endif
+        　
+        　@if($user->artist == 1)
+        　  <li class="list-group-item">プロフィール公開中</li>
+        　  @else
+        　  <li class="list-group-item">プロフィール未公開</li>
+        　@endif
+          
+          
         </ul>
         {{-- プロフィール編集ページへのリンク --}}
         <p class = pt-1>{!! link_to_route('users.edit', 'プロフィールを編集', ['user' => $user->id], ['class' => "btn btn-outline-secondary my-2 my-sm-0"]) !!}</p>
