@@ -9,7 +9,7 @@
                         <ul class="list-group">
                           @if(empty($user->name))
                         　  @else
-                        　  <li class="list-group-item">アーティスト名：{!! nl2br(e($user->name)) !!}</li>
+                        　  <li class="list-group-item">名前：{!! nl2br(e($user->name)) !!}</li>
                         　@endif
                           
                           @if(empty($user->address))
@@ -69,7 +69,7 @@
                         　  <li class="list-group-item">詳細情報：{!! nl2br(e($concert->content)) !!}</li>
                         　@endif
                           
-                          @if(empty($concert->content))
+                          @if(empty($concert->web))
                         　  @else
                         　  <li class="list-group-item">WEB：
                             <a href="{!! nl2br(e($concert->web)) !!}">{!! nl2br(e($concert->web)) !!}</a>
@@ -89,7 +89,7 @@
                     <ul class="list-group">
                       @if(empty($user->name))
                     　  @else
-                    　  <li class="list-group-item">アーティスト名：{!! nl2br(e($user->name)) !!}</li>
+                    　  <li class="list-group-item">名前：{!! nl2br(e($user->name)) !!}</li>
                     　@endif
                       
                       @if(empty($user->address))
@@ -145,7 +145,7 @@
                     　  <li class="list-group-item">詳細情報：{!! nl2br(e($concert->content)) !!}</li>
                     　@endif
                       
-                      @if(empty($concert->content))
+                      @if(empty($concert->web))
                     　  @else
                     　  <li class="list-group-item">WEB：
                         <a href="{!! nl2br(e($concert->web)) !!}">{!! nl2br(e($concert->web)) !!}</a>

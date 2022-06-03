@@ -10,7 +10,7 @@
           
           @if(empty($user->name))
         　  @else
-        　  <li class="list-group-item">アーティスト名：{!! nl2br(e($user->name)) !!}</li>
+        　  <li class="list-group-item">名前：{!! nl2br(e($user->name)) !!}</li>
         　@endif
           
           @if(empty($user->address))

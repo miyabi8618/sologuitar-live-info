@@ -27,7 +27,7 @@ class ConcertsController extends Controller
         ]);
     }
     
-        public function show($id)
+    public function show($id)
     {
         // idの値で該当のconcertを検索して取得
         $concert = Concert::findOrFail($id);

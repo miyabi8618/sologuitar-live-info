@@ -103,6 +103,8 @@ class UsersController extends Controller
         return redirect('/');
     }
     
+    //お気に入りアーティスト・ライブから詳細ページへ
+    
     //ライブ情報追加ページへ移動
     public function concert_create()
     {

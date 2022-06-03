@@ -9,6 +9,7 @@
                         <p class="mb-0">場所：{!! nl2br(e($favorite_concert->place)) !!}</p>
                         <p class="mb-0">会場：{!! nl2br(e($favorite_concert->venue)) !!}</p>
                         <p class="mb-0">公演日：{!! nl2br(e($favorite_concert->date)) !!}</p>
+                        <p>{!! link_to_route('concerts.show', 'ライブ詳細', ['concert' => $favorite_concert->id]) !!}</p>
                     </div>
                 </div>
             </li>
