@@ -13,8 +13,7 @@
 
 ### 使用技術
 ・HTML/CSS（Bootstrap）
-・PHP
-・laravel
+・PHP（laravel）
 ・MySQL
 ・AWS（Cloud9）
 ・Git/GitHub
