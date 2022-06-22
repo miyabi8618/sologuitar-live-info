@@ -38,7 +38,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('introduction', '自己紹介') !!}
-                    {!! Form::text('introduction', null, ['class' => 'form-control']) !!}
+                    {!! Form::textarea('introduction', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">

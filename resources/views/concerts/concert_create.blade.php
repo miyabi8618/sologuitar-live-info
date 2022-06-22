@@ -36,7 +36,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('content', 'ライブ詳細情報') !!}
-                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
