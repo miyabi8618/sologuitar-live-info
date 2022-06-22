@@ -19,7 +19,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 {{-- ログアウトへのリンク（リンク作成済み） --}}
-                                <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                                <li class="dropdown-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
                                 {{-- ユーザページへのリンク（リンク作成済み） --}}
                                 <li class="dropdown-item">{!! link_to_route('users.index', 'マイページ') !!}</li>
                                {{-- ライブ作成ページへのリンク(リンク作成済み) --}}
