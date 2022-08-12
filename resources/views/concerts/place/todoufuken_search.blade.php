@@ -2,12 +2,10 @@
 
 @section('content')
 
-
+@if (count($concerts) > 0) 
     <div class="text-left py-4">
-        <h2>栃木県の公演情報</h2>
+        <h3>{{$todoufuken}}の公演情報</h3>
     </div> 
-    
-@if (count($concerts) > 0)    
     @foreach ($concerts as $concert)
          @if(in_array($concert->user_id , $user ,true))
                 <li class="media p-4">
@@ -24,8 +22,14 @@
                 </li>
             @endif
     @endforeach
+@else
+    <div class="text-left py-4">
+        <h3>{{ $search_result }}</h3S>
+    </div>
 @endif
 
-    {{ $concerts->links() }}
+   {{$concerts->appends(request()->query())->links()}} 
     
+    
+
 @endsection

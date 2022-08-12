@@ -10,74 +10,7 @@ Route::get('concerts/user/{user}','ConcertsController@user_show')->name('concert
 
 //場所から検索  Route::get('', 'ConcertsController@')->name(''); 
 Route::get('place','ConcertsController@place_index');
-
-Route::group(['prefix' => 'place/kyushu', 'as' => 'concerts.place.kyushu.'], function () {
-  Route::get('fukuoka', 'ConcertsController@fukuoka')->name('fukuoka');
-  Route::get('saga', 'ConcertsController@saga')->name('saga');
-  Route::get('nagasaki', 'ConcertsController@nagasaki')->name('nagasaki');
-  Route::get('kumamoto', 'ConcertsController@kumamoto')->name('kumamoto');
-  Route::get('oita', 'ConcertsController@oita')->name('oita');
-  Route::get('miyazaki', 'ConcertsController@miyazaki')->name('miyazaki');
-  Route::get('kagoshima', 'ConcertsController@kagoshima')->name('kagoshima');
-  Route::get('okinawa', 'ConcertsController@okinawa')->name('okinawa');
-    });
-    
-Route::group(['prefix' => 'place/tohoku', 'as' => 'concerts.place.tohoku.'], function () {
-  Route::get('hokkaido', 'ConcertsController@hokkaido')->name('hokkaido');
-  Route::get('aomori', 'ConcertsController@aomori')->name('aomori');
-  Route::get('iwate', 'ConcertsController@iwate')->name('iwate');
-  Route::get('miyagi', 'ConcertsController@miyagi')->name('miyagi');
-  Route::get('akita', 'ConcertsController@akita')->name('akita');
-  Route::get('yamagata', 'ConcertsController@yamagata')->name('yamagata');
-  Route::get('fukushima', 'ConcertsController@fukushima')->name('fukushima');
-    });
-    
-Route::group(['prefix' => 'place/kanto', 'as' => 'concerts.place.kanto.'], function () {
-  Route::get('ibaraki', 'ConcertsController@ibaraki')->name('ibaraki');
-  Route::get('tochigi', 'ConcertsController@tochigi')->name('tochigi');
-  Route::get('gunma', 'ConcertsController@gunma')->name('gunma');
-  Route::get('saitama', 'ConcertsController@saitama')->name('saitama');
-  Route::get('chiba', 'ConcertsController@chiba')->name('chiba');
-  Route::get('tokyo', 'ConcertsController@tokyo')->name('tokyo');
-  Route::get('kanagawa', 'ConcertsController@kanagawa')->name('kanagawa');
-    });
-    
-Route::group(['prefix' => 'place/chubu', 'as' => 'concerts.place.chubu.'], function () {
-  Route::get('niigata', 'ConcertsController@niigata')->name('niigata');
-  Route::get('toyama', 'ConcertsController@toyama')->name('toyama');
-  Route::get('ishikawa', 'ConcertsController@ishikawa')->name('ishikawa');
-  Route::get('fukui', 'ConcertsController@fukui')->name('fukui');
-  Route::get('yamanashi', 'ConcertsController@yamanashi')->name('yamanashi');
-  Route::get('nagano', 'ConcertsController@nagano')->name('nagano');
-  Route::get('gifu', 'ConcertsController@gifu')->name('gifu');
-  Route::get('shizuoka', 'ConcertsController@shizuoka')->name('shizuoka');
-  Route::get('aichi', 'ConcertsController@aichi')->name('aichi');
-    });
-    
-Route::group(['prefix' => 'place/kinki', 'as' => 'concerts.place.kinki.'], function () {
-  Route::get('mie', 'ConcertsController@mie')->name('mie'); 
-  Route::get('shiga', 'ConcertsController@shiga')->name('shiga'); 
-  Route::get('kyoto', 'ConcertsController@kyoto')->name('kyoto'); 
-  Route::get('osaka', 'ConcertsController@osaka')->name('osaka'); 
-  Route::get('hyogo', 'ConcertsController@hyogo')->name('hyogo'); 
-  Route::get('nara', 'ConcertsController@nara')->name('nara'); 
-  Route::get('wakayama', 'ConcertsController@wakayama')->name('wakayama'); 
-    });
-    
-Route::group(['prefix' => 'place/chugoku', 'as' => 'concerts.place.chugoku.'], function () {
-  Route::get('tottori', 'ConcertsController@tottori')->name('tottori');
-  Route::get('shimane', 'ConcertsController@shimane')->name('shimane'); 
-  Route::get('okayama', 'ConcertsController@okayama')->name('okayama'); 
-  Route::get('hiroshima', 'ConcertsController@hiroshima')->name('hiroshima'); 
-  Route::get('yamaguchi', 'ConcertsController@yamaguchi')->name('yamaguchi'); 
-    });
-    
-Route::group(['prefix' => 'place/shikoku', 'as' => 'concerts.place.shikoku.'], function () {
-  Route::get('tokushima', 'ConcertsController@tokushima')->name('tokushima');
-  Route::get('kagawa', 'ConcertsController@kagawa')->name('kagawa'); 
-  Route::get('ehime', 'ConcertsController@ehime')->name('ehime'); 
-  Route::get('kochi', 'ConcertsController@kochi')->name('kochi'); 
-    });
+Route::get('concerts/todoufuken/search' , 'ConcertsController@todoufuken_search')->name('concerts.todoufuken_search');
 
 //ユーザー名から検索    
 Route::get('search_users','ConcertsController@search_users_index');
