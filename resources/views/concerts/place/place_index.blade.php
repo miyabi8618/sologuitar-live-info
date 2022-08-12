@@ -30,6 +30,11 @@
                     </input>
                 </form>
                 <form class="form-inline my-2 my-lg-0" action = "{{ route('concerts.todoufuken_search') }}" method = "get">
+                    <input class="form-control mr-sm-2" type="hidden" name="todoufuken" value="宮城県">
+                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">宮城県</button>
+                    </input>
+                </form>
+                <form class="form-inline my-2 my-lg-0" action = "{{ route('concerts.todoufuken_search') }}" method = "get">
                     <input class="form-control mr-sm-2" type="hidden" name="todoufuken" value="山形県">
                         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">山形県</button>
                     </input>
