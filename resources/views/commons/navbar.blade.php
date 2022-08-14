@@ -41,7 +41,7 @@
                         {{-- 地域から探すページへのリンク --}}
                         <li class="nav-item"><a href="{{ url('place') }}" class="nav-link">地域から探す</a></li>
                         {{-- アーティストから探すページへのリンク --}}
-                        <li class="nav-item"><a href="{{ url('search_users') }}" class="nav-link">アーティストから探す　　</a></li>
+                        <li class="nav-item"><a href="{{ route('keyword') }}" class="nav-link">アーティストから探す　　</a></li>
                         {{--検索フォーム--}}
                         <form class="form-inline my-2 my-lg-0" action = "{{ route('concerts.search') }}" method = "get">
                             {{ csrf_field() }}

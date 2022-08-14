@@ -13,7 +13,7 @@ Route::get('place','ConcertsController@place_index');
 Route::get('concerts/todoufuken/search' , 'ConcertsController@todoufuken_search')->name('concerts.todoufuken_search');
 
 //ユーザー名から検索    
-Route::get('search_users','ConcertsController@search_users_index');
+Route::get('keyword','ConcertsController@keyword_index')->name('keyword');
 Route::group(['prefix' => 'search_users', 'as' => 'concerts.search_users.search_word.'], function () {
   Route::get('a', 'ConcertsController@a')->name('a');
   Route::get('i', 'ConcertsController@i')->name('i');
@@ -62,7 +62,7 @@ Route::group(['prefix' => 'search_users', 'as' => 'concerts.search_users.search_
   Route::get('wo', 'ConcertsController@wo')->name('wo');
   Route::get('wu', 'ConcertsController@wu')->name('wu');
     });
-
+Route::get('concerts/users/search' , 'ConcertsController@users_search')->name('concerts.users_search');
 
 //検索機能
 Route::get('/concert/search','ConcertsController@search')->name('concerts.search');

@@ -4,7 +4,7 @@
 
 @if (count($users) > 0)
     <div class="text-left py-4">
-        <h2>「め」のつくアーティスト</h2>
+        <h2>「{{$keyword}}」のつくアーティスト</h2>
     </div>
     @foreach ($users as $user)
         <div class="form-inline">
@@ -14,10 +14,10 @@
     @endforeach
 @else
    <div class="text-left py-4">
-        <h3>「め」のつくアーティストはいませんでした</h3>
+        <h3>「{{$keyword}}」のつくアーティストはいませんでした</h3>
     </div> 
 @endif
 
-    {{ $users->links() }}
+   {{$users->appends(request()->query())->links()}} 
     
 @endsection

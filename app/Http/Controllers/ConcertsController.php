@@ -112,11 +112,25 @@ class ConcertsController extends Controller
     }
 
     //ユーザー名から探すページ作成（place_concerts）
-    public function search_users_index()
+    public function keyword_index()
     {
-        return view('concerts.search_users.search_users_index', [
+        return view('concerts.keyword.search_users_index', [
         ]);        
-    }    
+    }  
+    
+    public function users_search(Request $request)
+    {
+        $keyword = $request->keyword;
+        
+        $users = User::where('artist',1)
+                ->Where('ruby', 'like', $keyword . '%')
+                ->paginate(50);   
+        return view('concerts.keyword.users_search', [
+            'keyword' => $keyword,
+            'users' => $users, 
+        ]);
+        
+    }
     
     public function a()
     {
