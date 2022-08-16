@@ -5,7 +5,10 @@
         
             <div class="media-body p-4">
                 <div class="media-body border border-secondary rounded  p-3 mt-5">
-                    <h4>アーティスト情報</h4>
+                    <div class = "row">
+                      <h4 class = "ml-3">アーティスト情報</h4>
+                      @include('user_follow.follow_button')
+                    </div>
                         <ul class="list-group">
                           @if(empty($user->name))
                         　  @else
@@ -33,15 +36,15 @@
                             <a href="{!! nl2br(e($user->web)) !!}">{!! nl2br(e($user->web)) !!}</a>
                             </li>
                         　@endif
-                          <p>{!! link_to_route('concerts.user_show', '他のライブ', ['user' => $user->id]) !!}</p>
+                        　<p>{!! link_to_route('concerts.user_show', '他のライブ', ['user' => $user->id]) !!}</p>
                         </ul>
-
-                    {{-- フォロー／アンフォローボタン --}}
-                    <p>@include('user_follow.follow_button')</p>
                 </div>
             
                 <div class="media-body border border-secondary rounded  p-3 mt-5">
-                    <h4>ライブ詳細</h4>
+                  <div class = "row">
+                    <h4 class = "ml-3">ライブ詳細</h4>
+                    <p>@include('concert_favorite.favorite_button')</p>
+                  </div>
                         <ul class="list-group">
                             
                           @if(empty($concert->title))
@@ -75,9 +78,7 @@
                             <a href="{!! nl2br(e($concert->web)) !!}">{!! nl2br(e($concert->web)) !!}</a>
                             </li>
                         　@endif
-                        　
                         </ul>   
-                    <p>@include('concert_favorite.favorite_button')</p>
                 </div>
             </div>
      
